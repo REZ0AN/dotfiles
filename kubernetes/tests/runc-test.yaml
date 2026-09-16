@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: runc-test
+spec:
+  containers:
+    - name: test
+      image: busybox:1.36
+      command: ["sh", "-c", "echo runc pod started; sleep 3600"]
