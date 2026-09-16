@@ -1,0 +1,23 @@
+vmType: vz
+arch: aarch64
+
+cpus: 8
+memory: "8GiB"
+disk: "60GiB"
+
+images:
+  - location: "https://cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-arm64.img"
+    arch: aarch64
+
+mounts:
+  - location: "~/Developer/lima-workspace"
+    writable: true
+
+ssh:
+  localPort: 2222
+  forwardAgent: true
+
+containerd:
+  system: false
+  user: false
+
