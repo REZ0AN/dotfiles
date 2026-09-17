@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gvisor-test
+spec:
+  runtimeClassName: gvisor
+  containers:
+    - name: test
+      image: busybox:1.36
+      command:
+        - sh
+        - -c
+        - |
+          echo "gvisor pod started"
+          sleep 3600
+  restartPolicy: Never
