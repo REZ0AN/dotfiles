@@ -8,6 +8,9 @@ This repository is intended to help me, quickly recreate a consistent developmen
 
 ```text
 .
+├── agent-cli
+│   ├── codex.sh
+│   └── cursor.sh
 ├── cilium
 │   └── install.sh
 ├── containerd
@@ -45,6 +48,7 @@ This repository is intended to help me, quickly recreate a consistent developmen
 | `python/` | Python installation from source with configurable version |
 | `node/` | Node.js installation using NVM |
 | `ssh-keygen/` | Ed25519 SSH key generation for GitHub and other SSH-based services |
+| `agent-cli/` | Agent CLI installers for Codex CLI and Cursor Agent CLI |
 | `containerd/` | containerd installation and Kubernetes-compatible runtime configuration |
 | `kubernetes/` | kubeadm, kubelet, kubectl, and single-node cluster initialization |
 | `cilium/` | Cilium CNI installation and cluster networking validation |
@@ -107,13 +111,14 @@ For a fresh Linux machine or Lima VM, the recommended order is:
 3. Python
 4. Node.js
 5. SSH keys
-6. containerd
-7. Kubernetes
-8. Cilium
-9. Validate runc
-10. gVisor
-11. RuntimeClass
-12. Validate gVisor
+6. Agent CLIs
+7. containerd
+8. Kubernetes
+9. Cilium
+10. Validate runc
+11. gVisor
+12. RuntimeClass
+13. Validate gVisor
 ```
 
 ## System and Networking Tools
@@ -218,6 +223,35 @@ Test GitHub authentication:
 
 ```bash
 ssh -T git@github.com
+```
+
+## Agent CLIs
+
+Install Codex CLI:
+
+```bash
+chmod +x agent-cli/codex.sh
+./agent-cli/codex.sh
+```
+
+Optionally choose an install directory:
+
+```bash
+./agent-cli/codex.sh ~/.local/bin
+```
+
+Install Cursor Agent CLI:
+
+```bash
+chmod +x agent-cli/cursor.sh
+./agent-cli/cursor.sh
+```
+
+Verify:
+
+```bash
+codex --version
+agent --version
 ```
 
 ## containerd
